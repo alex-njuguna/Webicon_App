@@ -29,7 +29,7 @@ body{
     top: 0;
     display: flex;
     margin: px;
-    align-content: cenetr;
+    justify-content: center;
     align-items: center;
     /* box-shadow: 0 5px 10px rgb(231, 240, 232); */
     /* background-color: #b3d3bd; */
@@ -69,8 +69,8 @@ body{
 .navbar a {
     color: #000000;
     text-decoration: none;
-    padding: 10px;
-    font-size: 12px;
+    padding: 20px;
+    font-size: 13px;
     font-family: 'montserrat';
 
 }
@@ -88,7 +88,7 @@ body{
     margin: 10px;
     font-size: 30px;
     font-family: 'open sans';
-    font-weight: 600;
+    font-weight: 700;
     color: #0f413c;
 }
 
@@ -100,7 +100,7 @@ body{
     margin-right: 10px;
     border-radius: 50px;
     /* border-color: solid rgb(37, 183, 168); */
-    background-color: rgb(205, 218, 213);
+    background-color: rgb(223, 241, 234);
     box-shadow: 0 5px 10px rgb(195, 197, 197);
     border: none;
     font-family: 'montserrat';
