@@ -27,7 +27,7 @@ function search() {
         url: apiUrl,
         method: 'get',
         headers: {
-            'Authorization': 'Bearer ' + apiKey
+            'Authorization': 'CR7EgAy7dXmdWn23JBkprofllfgM1b8ewvZ51uWQLUKoaD1E'
         },
         success: function(data) {
             // Clear previous results
