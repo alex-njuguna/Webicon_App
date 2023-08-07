@@ -14,9 +14,11 @@ body{
     align-items: center;
     justify-content: center;
     /* color: black; */
-	background-image: url(images/Web-Design_6.gif);
+	background-image: url(images/Comp5.gif);
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
 }
 
