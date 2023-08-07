@@ -52,7 +52,12 @@ function search() {
 };
 
 
-
+// The searchButton.addEventListener() function is meant to listen for
+// the click event on the searchButton element. When the click event
+// occurs, the searchButton.addEventListener() function calls
+// the search() function. The search() function then fetches the list
+// of icons from the Flaticon API and displays them in the iconResults
+// div.
 
 
 
