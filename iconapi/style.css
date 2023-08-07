@@ -67,7 +67,7 @@ body{
 }
 
 .navbar a {
-    color: #000000;
+    color: #fcfbfb;
     text-decoration: none;
     padding: 20px;
     font-size: 13px;
@@ -76,7 +76,7 @@ body{
 }
 
 .navbar a:hover {
-    color: #f7f9f9;
+    color: #126565;
 }
 
 
@@ -100,8 +100,8 @@ body{
     margin-right: 10px;
     border-radius: 50px;
     /* border-color: solid rgb(37, 183, 168); */
-    background-color: rgb(223, 241, 234);
-    box-shadow: 0 5px 10px rgb(195, 197, 197);
+    background-color: rgb(229, 234, 232);
+    box-shadow: 0 5px 10px rgb(206, 208, 206);
     border: none;
     font-family: 'montserrat';
 
