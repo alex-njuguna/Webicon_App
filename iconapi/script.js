@@ -4,52 +4,83 @@ const searchButton = document.getElementById('searchButton');
 const iconResults = document.getElementById('iconResults');
 
 
-// Call the search function when the search button is clicked
-searchButton.addEventListener('click', search);
+async function searchIcons(query) {
+    const url = `https://api.flaticon.com/v3/search`;
+    const headers = {
+        Authorization: `Bearer ${apiKey}`,
+    };
+    const data = {
+        q: query,
+    };
 
-function search() {
-    const searchQuery = searchInput.value;
-    if (searchQuery.trim() === '') {
-        return;
+    const response = await fetch(url, {
+        method: "GET",
+        headers,
+        data,
+    });
+
+    if (response.status === 200) {
+        const icons = await response.json();
+        return icons.icons;
+    } else {
+        throw new Error(response.statusText);
     }
+}
 
-// searchButton.addEventListener('click', () => {
+const icons = await searchIcons("phone");
+
+for (const icon of icons) {
+//   console.log(icon.name);
+iconResults.innerHTML=icon.name
+}
+
+
+// // Call the search function when the search button is clicked
+// searchButton.addEventListener('click', search);
+
+// function search() {
 //     const searchQuery = searchInput.value;
 //     if (searchQuery.trim() === '') {
 //         return;
 //     }
 
-    // API endpoint
-    const apiUrl = `https://api.flaticon.com/v2/items/icons`;
+// // searchButton.addEventListener('click', () => {
+// //     const searchQuery = searchInput.value;
+// //     if (searchQuery.trim() === '') {
+// //         return;
+// //     }
 
-    // jQuery AJAX request
-    $.ajax({
-        url: apiUrl,
-        method: 'get',
-        headers: {
-            'Authorization': 'CR7EgAy7dXmdWn23JBkprofllfgM1b8ewvZ51uWQLUKoaD1E'
-        },
-        success: function(data) {
-            // Clear previous results
-            iconResults.innerHTML = '';
+//     // API endpoint
+//     const apiUrl = `https://api.flaticon.com/v2/items/icons`;
 
-            // Loop through the icons
-            for (const icon of data.items) {
-                // Create an img element
-                const imgElement = document.createElement('img');
+//     // jQuery AJAX request
+//     $.ajax({
+//         url: apiUrl,
+//         method: 'get',
+//         headers: {
+//             'Authorization': apiKey
+//         },
+//         success: function(data) {
+//             // Clear previous results
+//             iconResults.innerHTML = '';
 
-                // Set the src property of the img element
-                imgElement.src = icon.preview_url;
+//             // Loop through the icons
+//             for (const icon of data.items) {
+//                 // Create an img element
+//                 const imgElement = document.createElement('img');
 
-                // Set the alt property of the img element
-                imgElement.alt = icon.name;
+//                 // Set the src property of the img element
+//                 imgElement.src = icon.preview_url;
 
-                // Append the img element to the iconResults div
-                iconResults.appendChild(imgElement);
-            }
-        }
-    });
-};
+//                 // Set the alt property of the img element
+//                 imgElement.alt = icon.name;
+
+//                 // Append the img element to the iconResults div
+//                 iconResults.appendChild(imgElement);
+//             }
+//         }
+//     });
+// };
 
 
 // The searchButton.addEventListener() function is meant to listen for

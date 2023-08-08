@@ -151,12 +151,9 @@ body{
 
 /* Style for individual icon items */
 #iconResults img {
-    max-width: 100px;
-    max-height: 100px;
-    /* border: 1px solid #721919;
-    background-color: #721919;
-    color: #721919;
-    padding: 0;
-    background-image: url(images/wxScDz.jpeg);
-    background-size: cover; */
-}
+        max-width: 100px;
+        max-height: 100px;
+        border: 1px solid #ccc;
+        padding: 5px;
+    }
+
