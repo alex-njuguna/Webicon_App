@@ -4,34 +4,56 @@ const searchButton = document.getElementById('searchButton');
 const iconResults = document.getElementById('iconResults');
 
 
+searchButton.addEventListener('click', async () => {
+    const query = searchInput.value;
+    try {
+        const icons = await searchIcons(query);
+        displayIcons(icons);
+    } catch (error) {
+        console.error("Error searching icons:", error);
+    }
+});
+
 async function searchIcons(query) {
     const url = `https://api.flaticon.com/v3/search`;
     const headers = {
         Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
     };
     const data = {
         q: query,
     };
 
     const response = await fetch(url, {
-        method: "GET",
+        method: "POST",
         headers,
-        data,
+        body: JSON.stringify(data),
     });
 
-    if (response.status === 200) {
-        const icons = await response.json();
-        return icons.icons;
+    if (response.ok) {
+        const result = await response.json();
+        return result.icons;
     } else {
-        throw new Error(response.statusText);
+        throw new Error("API request failed");
     }
 }
 
-const icons = await searchIcons("phone");
+function displayIcons(icons) {
+    iconResults.innerHTML = ''; // Clear previous results
+    for (const icon of icons) {
+        const iconElement = document.createElement('div');
+        
+        const iconImage = document.createElement('img');
+        iconImage.src = icon.images.svg; // You can choose a different image type if needed
+        iconImage.alt = icon.name;
+        iconElement.appendChild(iconImage);
 
-for (const icon of icons) {
-//   console.log(icon.name);
-iconResults.innerHTML=icon.name
+        const iconName = document.createElement('div');
+        iconName.textContent = icon.name;
+        iconElement.appendChild(iconName);
+
+        iconResults.appendChild(iconElement);
+    }
 }
 
 
